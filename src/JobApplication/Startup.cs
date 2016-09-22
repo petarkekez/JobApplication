@@ -60,6 +60,7 @@ namespace JobApplication
             {
                 loggerFactory.AddDebug(LogLevel.Error);
             }
+            app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
 
             seeder.EnsureSeedData().Wait();
