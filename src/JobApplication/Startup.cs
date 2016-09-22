@@ -60,15 +60,7 @@ namespace JobApplication
             {
                 loggerFactory.AddDebug(LogLevel.Error);
             }
-
-            app.UseMvc(config =>
-            {
-                config.MapRoute(
-                    name: "Default",
-                    template: "{controller}/{action}/{id?}",
-                    defaults: new { controller = "Home", action = "Index" }
-                    );
-            });
+            app.UseMvcWithDefaultRoute();
 
             seeder.EnsureSeedData().Wait();
             
