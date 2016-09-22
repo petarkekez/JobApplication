@@ -7,6 +7,7 @@ using JobApplication.Database.IReporistory;
 using Microsoft.Extensions.Logging;
 
 
+
 namespace JobApplication.Controllers
 {
     [Route("api/[controller]")]
