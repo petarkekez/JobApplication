@@ -6,9 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using JobApplication.Database.IReporistory;
 using Microsoft.Extensions.Logging;
 
-
-
-namespace JobApplication.Controllers
+namespace JobApplication.Controllers.Api
 {
     [Route("api/[controller]")]
     public class JuniorController : Controller
