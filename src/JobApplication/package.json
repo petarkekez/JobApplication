@@ -1,21 +1,46 @@
 {
-  "version": "1.0.0",
-  "name": "asp.net",
+  "name": "ng2app",
+  "version": "0.0.0",
+  "license": "MIT",
+  "angular-cli": {},
+  "scripts": {
+    "start": "tsc && gulp get:started && concurrently \"npm run tsc:w\" \"dotnet run\" \"npm run lite\" ",
+    "lite": "lite-server",
+    "postinstall": "typings install",
+    "tsc": "tsc", 
+    "tsc:w": "tsc -w", 
+    "typings": "typings",
+    "cleanup": "rimraf node_modules && rimraf typings"
+  },
   "private": true,
   "dependencies": {
-    "angular2": "2.0.0-beta.17",
-    "systemjs": "0.19.38",
-    "es6-promise": "3.3.1",
-    "es6-shim": "0.35.1",
-    "reflect-metadata": "0.1.8",
+    "@angular/common": "2.0.0-rc.7",
+    "@angular/compiler": "2.0.0-rc.7",
+    "@angular/compiler-cli": "0.6.1",
+    "@angular/core": "2.0.0-rc.7",
+    "@angular/forms": "2.0.0-rc.7",
+    "@angular/http": "2.0.0-rc.7",
+    "@angular/platform-browser": "2.0.0-rc.7",
+    "@angular/platform-browser-dynamic": "2.0.0-rc.7",
+    "@angular/router": "3.0.0-rc.3",
+    "@angular/upgrade": "2.0.0-rc.7",
+
+    "core-js": "^2.4.1",
+    "reflect-metadata": "^0.1.3",
     "rxjs": "5.0.0-beta.12",
-    "zone.js": "0.6.25"
+    "systemjs": "0.19.27",
+    "zone.js": "^0.6.21",
+    "bootstrap": "^3.3.6",
+    "jquery": "2.2.4"
   },
   "devDependencies": {
-    "gulp": "3.9.1",
-    "gulp-concat": "2.6.0",
-    "gulp-cssmin": "0.1.7",
-    "gulp-uglify": "2.0.0",
-    "rimraf": "2.5.2"
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "rimraf": "^2.5.2",
+    "run-sequence": "^1.1.5",
+    "concurrently": "^2.2.0",
+    "lite-server": "^2.2.2",
+    "typescript": "^1.8.10",
+    "typings": "^1.3.2"
   }
 }

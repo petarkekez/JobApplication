@@ -1,35 +1,34 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8" />
-    <title>The title</title>
-    <base href="/" />
-    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+    <base href="." />
+    <title>ASP.NET Core 1.0 Angular 2 Demo</title>
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- endinject -->
 </head>
+
 <body>
     <my-app>Loading...</my-app>
 
-    <script src="lib/npmlibs/es6-shim/es6-shim.js"></script>
-    <script src="lib/npmlibs/es6-promise/es6-promise.js"></script>
-    <script src="lib/npmlibs/systemjs/system-polyfills.src.js"></script>
-    <script src="lib/npmlibs/angular2/angular2-polyfills.js"></script>
-    <script src="lib/npmlibs/systemjs/system.src.js"></script>
-    <script src="lib/npmlibs/rxjs/Rx.js"></script>
-    <script src="lib/npmlibs/angular2/angular2.js"></script>
-    <script src="lib/npmlibs/angular2/router.js"></script>
-    <script src="lib/npmlibs/angular2/http.js"></script>
-    <script src="lib/jquery/dist/jquery.js"></script>
-    <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
-
+     <!-- 1. Load libraries -->
+    <script src="js/shim.min.js"></script>
+    <script src="js/zone.js"></script>
+    <script src="js/Reflect.js"></script>
+    <script src="js/system.src.js"></script>
+    
+    <script src="js/jquery.js"></script>
+    
+    <script src="js/bootstrap.js"></script>
+    
+    <!-- 2. Configure SystemJS -->
+    <script src="system.config.js"></script>
     <script>
-    System.config({
-        packages: {
-            'app': { defaultExtension: 'js' },
-            'lib': { defaultExtension: 'js' },
-        }
-    });
-    System.import('app/boot')
-        .then(null, console.error.bind(console));
+      System.import('app').catch(function(err){ console.error(err); });
     </script>
+
 </body>
+
 </html>

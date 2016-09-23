@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Serialization;
 using JobApplication.Database.IReporistory;
 using JobApplication.Database.Reporistory;
+using System.IO;
 
 namespace JobApplication
 {
@@ -41,6 +42,7 @@ namespace JobApplication
 
             services.AddTransient<Database.JobContextSeedData>();
 
+            services.AddCors();
             services.AddMvc()
                 .AddJsonOptions(config =>
                 {
@@ -60,8 +62,28 @@ namespace JobApplication
             {
                 loggerFactory.AddDebug(LogLevel.Error);
             }
+
+            //app.Use(async (context, next) =>
+            //{
+            //    await next();
+
+            //    if (context.Response.StatusCode == 404
+            //        && !Path.HasExtension(context.Request.Path.Value))
+            //    {
+            //        context.Request.Path = "/index.html";
+            //        await next();
+            //    }
+            //});
+
+
+            app.UseCors(config =>
+                config.AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowAnyOrigin());
+            app.UseDefaultFiles();
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
+            //app.UseMvcWithDefaultRoute();
+            app.UseMvc();
 
             seeder.EnsureSeedData().Wait();
             
