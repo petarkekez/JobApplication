@@ -5,7 +5,7 @@ var del = require('del');
 
 var buildConfig = require('./gulp.config');
 
-gulp.task('get:started', function(done) {
+gulp.task('get:started', function (done) {
     runSeq(
         'clean-Vendor-Js-In-Root',
         'copy-Vendor-Js-To-Wwwroot-Internal',
@@ -18,25 +18,25 @@ gulp.task('clean-Vendor-Js-In-Root', function (done) {
     });
 });
 
-gulp.task('copy-Vendor-Js-To-Wwwroot-Internal', function(done) {
-  runSeq(
-        'copy-angular',
-        'copy-rxjs',
-        'copy-allOther',
-        done);
+gulp.task('copy-Vendor-Js-To-Wwwroot-Internal', function (done) {
+    runSeq(
+          'copy-angular',
+          'copy-rxjs',
+          'copy-allOther',
+          done);
 });
 
-gulp.task('copy-angular', function() {
+gulp.task('copy-angular', function () {
     return gulp.src(buildConfig.sources.angularRC)
         .pipe(gulp.dest(buildConfig.rootJsFolder + "@angular/"));
 });
 
-gulp.task('copy-rxjs', function() {
+gulp.task('copy-rxjs', function () {
     return gulp.src(buildConfig.sources.Rxjs)
         .pipe(gulp.dest(buildConfig.rootJsFolder + "rxjs/"));
 });
 
-gulp.task('copy-allOther', function() {
-     return gulp.src(buildConfig.sources.jsFilesInclSourcePaths)
-        .pipe(gulp.dest(buildConfig.rootJsFolder));
+gulp.task('copy-allOther', function () {
+    return gulp.src(buildConfig.sources.jsFilesInclSourcePaths)
+       .pipe(gulp.dest(buildConfig.rootJsFolder));
 });
